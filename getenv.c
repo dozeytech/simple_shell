@@ -2,7 +2,7 @@
 
 /**
  * get_environ - returns the string array copy of environ
- * @info: Function containing potential patrameters
+ * @info: Function containing patrameters
  * Return: Always 0
  */
 char **get_environ(info_t *info)
@@ -18,9 +18,9 @@ char **get_environ(info_t *info)
 
 /**
  * _unsetenv - Delete an environment variable
- * @info: Function containing potential parameters
+ * @info: Function containing parameters
  *  Return: 1 on delete, else 0
- * @var: the variable property
+ * @var: variable property
  */
 int _unsetenv(info_t *info, char *var)
 {
@@ -48,10 +48,10 @@ int _unsetenv(info_t *info, char *var)
 }
 
 /**
- * _setenv - compute an environment variable,
- * @info: Function containing potential parameters
+ * _setenv - compute an environment variable.
+ * @info: Function containing parameters
  * @var: the variable property
- * @value:  variable value
+ * @value: variable value
  *  Return: Always 0
  */
 int _setenv(info_t *info, char *var, char *value)

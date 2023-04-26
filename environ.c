@@ -56,31 +56,31 @@ int _mysetenv(info_t *info)
  */
 int _myunsetenv(info_t *info)
 {
-	int j;
+	int q;
 
 	if (info->argc == 1)
 	{
 		_eputs("Too few parameters.\n");
 		return (1);
 	}
-	for (j = 1; j <= info->argc; j++)
-		_unsetenv(info, info->argv[j]);
+	for (q = 1; q <= info->argc; q++)
+		_unsetenv(info, info->argv[q]);
 
 	return (0);
 }
 
 /**
- * populate_env_list - populates environmet linked list
+ * populate_env_list - populates environment linked list
  * @info: function containing parameters
  * Return: Always 0
  */
 int populate_env_list(info_t *info)
 {
 	list_t *node = NULL;
-	size_t j;
+	size_t q;
 
-	for (j = 0; environ[j]; j++)
-		add_node_end(&node, environ[j], 0);
+	for (q = 0; environ[q]; q++)
+		add_node_end(&node, environ[q], 0);
 	info->env = node;
 	return (0);
 }

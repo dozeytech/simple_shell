@@ -1,8 +1,8 @@
 #include "shell.h"
 
 /**
- * _myhistory - displays the list history
- * @info: Structure containing arguments.
+ * _myhistory - shows the list history
+ * @info: Function containing arguments.
  *  Return: Success 0
  */
 int _myhistory(info_t *info)
@@ -14,29 +14,30 @@ int _myhistory(info_t *info)
 /**
  * unset_alias - sets alias to the string
  * @info: struct parameter
- * @str: the string
+ * @str: string
  * Return: Always 0 on success, 1 on error
  */
 int unset_alias(info_t *info, char *str)
 {
-	char *pntr, k;
-	int ret;
+	char *pntr;
+	char k;
+	int rtn;
 
 	pntr = _strchr(str, '=');
 	if (!pntr)
 		return (1);
 	k = *pntr;
 	*pntr = 0;
-	ret = delete_node_at_index(&(info->alias),
+	rtn = delete_node_at_index(&(info->alias),
 		get_node_index(info->alias, node_starts_with(info->alias, str, -1)));
 	*pntr = k;
-	return (ret);
+	return (rtn);
 }
 
 /**
  * set_alias - sets alias to string
  * @info: struck parameter
- * @str: the string
+ * @str: string
  * Return: Always 0 on success, 1 on error
  */
 int set_alias(info_t *info, char *str)
@@ -77,7 +78,7 @@ int print_alias(list_t *node)
 
 /**
  * _myalias - mimics the builtin
- * @info: Structure containing potential arguments.
+ * @info: function with parguments.
  *  Return: Always 0
  */
 int _myalias(info_t *info)

@@ -63,9 +63,9 @@ int _putfd(char c, int fd)
 
 /**
  * _putsfd - prints an input string
- * @str: the string
+ * @str: string
  * @fd: file descriptor
- * Return: the number of chars
+ * Return: number of chars
  */
 int _putsfd(char *str, int fd)
 {

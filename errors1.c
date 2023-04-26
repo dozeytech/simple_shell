@@ -1,8 +1,8 @@
 #include "shell.h"
 
 /**
- * _erratoi - converts string integer
- * @s: the string
+ * _erratoi - converts string int
+ * @s: string
  * Return: 0 if no number in string, converted number else
  *       -1 on error
  */
@@ -12,7 +12,7 @@ int _erratoi(char *s)
 	unsigned long int result = 0;
 
 	if (*s == '+')
-		s++;  /* TODO: why does this make main return 255? */
+		s++;
 	for (j = 0;  s[j] != '\0'; j++)
 	{
 		if (s[j] >= '0' && s[j] <= '9')
@@ -30,8 +30,8 @@ int _erratoi(char *s)
 
 /**
  * print_error - prints error message
- * @info: the parameter & return struck infor
- * @estr: string containing specified error type
+ * @info: parameter & return struck infor
+ * @estr: string specified error type
  * Return: 0 if no numbers in string, converted number else
  *        -1 on error
  */
@@ -47,16 +47,16 @@ void print_error(info_t *info, char *estr)
 }
 
 /**
- * print_d - function prints an integer (base 10)
- * @input: the input
- * @fd: the file descriptor
+ * print_d - function that prints an int
+ * @input: input
+ * @fd: file descriptor
  * Return: number of char printed
  */
 int print_d(int input, int fd)
 {
 	int (*__putchar)(char) = _putchar;
 	int j, count = 0;
-	unsigned int _abs_, current;
+	unsigned int _abs_, new;
 
 	if (fd == STDERR_FILENO)
 		__putchar = _eputchar;
@@ -68,17 +68,17 @@ int print_d(int input, int fd)
 	}
 	else
 		_abs_ = input;
-	current = _abs_;
+	new = _abs_;
 	for (j = 1000000000; j > 1; j /= 10)
 	{
 		if (_abs_ / j)
 		{
-			__putchar('0' + current / j);
+			__putchar('0' + new / j);
 			count++;
 		}
-		current %= j;
+		new %= j;
 	}
-	__putchar('0' + current);
+	__putchar('0' + new);
 	count++;
 
 	return (count);
@@ -89,7 +89,7 @@ int print_d(int input, int fd)
  * @num: number to be converted
  * @base: base of the num
  * @flags: parameter flags
- * Return: the string
+ * Return: string
  */
 char *convert_number(long int num, int base, int flags)
 {
@@ -120,7 +120,7 @@ char *convert_number(long int num, int base, int flags)
 }
 
 /**
- * remove_comments - function replaces first instance of '#' with '\0'
+ * remove_comments - function replaces first instance
  * @buf: address of the string
  * Return: Always 0;
  */
